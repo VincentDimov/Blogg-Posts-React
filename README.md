@@ -1,17 +1,40 @@
-# React + Vite
+# Practice Exercise #8 – Blog Posts (React + API)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+In this exercise, you’ll build a small React application that fetches and displays blog posts using the following API:
+👉 [https://jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requirements
 
-## React Compiler
+### 1. Fetch and Display Posts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+When the application starts, fetch all posts from the API and render each post using a `<Post />` component.
+Each post should display:
 
-## Expanding the ESLint configuration
+* The **title** of the post
+* The **body text** of the post
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Blogg-Posts-React
+At the bottom of each post, include a button that displays information about the **user** who wrote the post.
+
+### 2. Show User Information
+
+When the button is clicked, render a `<UserInfo />` component **inside** the `<Post />` component.
+
+The `<UserInfo />` component should fetch user data from the `/users` endpoint using the `userId` associated with the post.
+Example:
+If a post has `userId = 3`, fetch the data from:
+👉 [https://jsonplaceholder.typicode.com/users/3](https://jsonplaceholder.typicode.com/users/3)
+
+The `<UserInfo />` component should display:
+
+* The user’s **username**
+* The user’s **email**
+* The user’s **city**
+
+### 3. (Extra) Load Comments Automatically
+
+As an extra feature, make each `<Post />` component automatically load its associated comments using the `/comments` endpoint:
+👉 [https://jsonplaceholder.typicode.com/comments/](https://jsonplaceholder.typicode.com/comments/)
+
+Each post should display its corresponding comments filtered by `postId`.
